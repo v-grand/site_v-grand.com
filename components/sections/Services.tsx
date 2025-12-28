@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { GoogleGenAI, Type } from '@google/genai';
+// import { GoogleGenAI, Type } from '@google/genai'; // AI генерация временно отключена
 import type { Service } from '../../types.ts';
 import { SERVICE_NAMES } from '../../constants.ts';
 import { ServiceIcons } from '../ui/icons.tsx';
 
-const API_KEY = process.env.API_KEY;
+// const API_KEY = process.env.API_KEY; // Ключ API не используется в текущей конфигурации
 
 const Services: React.FC = () => {
     const [services, setServices] = useState<Service[]>([]);
@@ -13,68 +13,15 @@ const Services: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const fetchServices = async () => {
-            if (!API_KEY) {
-                setError("API ключ не найден. Пожалуйста, настройте переменную окружения API_KEY.");
-                setLoading(false);
-                // Use mock data if API key is not available
-                setServices(SERVICE_NAMES.map(name => ({
-                    title: name,
-                    description: "Описание услуги будет сгенерировано AI, когда API ключ будет доступен. Это пример текста."
-                })));
-                return;
-            }
-
-            setLoading(true);
-            setError(null);
-
-            try {
-                const ai = new GoogleGenAI({ apiKey: API_KEY, vertexai: true });
-                
-                const serviceList = SERVICE_NAMES.join(', ');
-                const prompt = `Создай список из 8 технологических услуг для веб-сайта. Названия услуг: ${serviceList}. Для каждой услуги предоставь краткое, но емкое описание на русском языке (2-3 предложения), подчеркивающее ценность для клиента. Ответ должен быть в формате JSON.`;
-
-                const response = await ai.models.generateContent({
-                    model: 'gemini-2.5-flash',
-                    contents: { role: 'user', parts: [{ text: prompt }] },
-                    config: {
-                        responseMimeType: 'application/json',
-                        responseSchema: {
-                            type: Type.ARRAY,
-                            items: {
-                                type: Type.OBJECT,
-                                properties: {
-                                    title: { type: Type.STRING },
-                                    description: { type: Type.STRING },
-                                },
-                                required: ['title', 'description'],
-                            },
-                        },
-                    },
-                });
-                
-                const jsonText = response.text.trim();
-                const parsedServices: Service[] = JSON.parse(jsonText);
-                
-                // Ensure the order matches SERVICE_NAMES
-                const orderedServices = SERVICE_NAMES.map(name => {
-                    const found = parsedServices.find(p => p.title.toLowerCase().includes(name.toLowerCase().split(' ')[0]));
-                    return found || { title: name, description: "Не удалось сгенерировать описание." };
-                });
-
-                setServices(orderedServices);
-
-            } catch (e) {
-                console.error("Ошибка при вызове Gemini API:", e);
-                setError("Не удалось загрузить описание услуг. Попробуйте обновить страницу.");
-                // Fallback to showing titles if API fails
-                setServices(SERVICE_NAMES.map(name => ({
-                    title: name,
-                    description: "Произошла ошибка при загрузке данных от AI."
-                })));
-            } finally {
-                setLoading(false);
-            }
+        const fetchServices = () => {
+            // ВРЕМЕННОЕ РЕШЕНИЕ: Используем моковые данные, так как API ключ не настроен.
+            // Это позволяет сайту отображаться. Для включения AI, настройте ваш API ключ.
+            setError("API ключ не настроен. Отображаются демонстрационные данные.");
+            setServices(SERVICE_NAMES.map(name => ({
+                title: name,
+                description: "Описание услуги будет сгенерировано AI, когда API ключ будет доступен. Это пример текста."
+            })));
+            setLoading(false);
         };
 
         fetchServices();
@@ -117,7 +64,7 @@ const Services: React.FC = () => {
                     </p>
                 </div>
 
-                {error && <div className="mt-12 text-center text-red-600 bg-red-100 p-4 rounded-lg">{error}</div>}
+                {error && <div className="mt-12 text-center text-orange-800 bg-orange-100 p-4 rounded-lg">{error}</div>}
 
                 <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 stagger-in">
                     {loading
