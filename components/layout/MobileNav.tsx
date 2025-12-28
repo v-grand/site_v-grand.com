@@ -16,7 +16,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
     return (
         <div className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true">
             <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" onClick={onClose}></div>
-            <div className={`fixed top-0 right-0 bottom-0 w-full max-w-sm bg-slate-50 shadow-lg transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`fixed top-0 right-0 bottom-0 w-full max-w-sm bg-slate-50 shadow-lg`}>
                 <div className="p-4 flex items-center justify-between border-b border-slate-200">
                     <a href="#" className="text-2xl font-bold text-slate-800">
                         u-cloud<span className="text-sky-500">24</span>
