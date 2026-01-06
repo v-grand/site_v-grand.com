@@ -57,10 +57,10 @@ const Services: React.FC = () => {
                 <div className="text-center">
                     <h2 className="text-base font-semibold text-sky-500 tracking-wider uppercase">Наши Услуги</h2>
                     <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                        Полный спектр цифровых решений
+                        Полный цикл инжиниринговых услуг
                     </p>
                     <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
-                        Мы используем передовые технологии для решения ваших самых сложных задач.
+                        Мы предлагаем комплексные решения для всех этапов реализации вашего проекта.
                     </p>
                 </div>
 

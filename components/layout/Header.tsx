@@ -14,7 +14,7 @@ const Header: React.FC = () => {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (servicesMenuRef.current && !servicesMenuRef.current.contains(event.target as Node)) {
+            if (servicesMenuRef.current && !servicesMenu-ref.current.contains(event.target as Node)) {
                 setServicesOpen(false);
             }
         };
@@ -30,7 +30,7 @@ const Header: React.FC = () => {
                         {/* Logo */}
                         <div className="flex-shrink-0">
                             <a href="#" className="text-2xl font-bold text-slate-800">
-                                u-cloud<span className="text-sky-500">24</span>
+                                v-<span className="text-sky-500">grand</span>
                             </a>
                         </div>
 
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
                                 <span className="ml-2 font-semibold text-sm">{language}</span>
                             </button>
                             <a href="#" className="px-5 py-3 text-base font-semibold text-white bg-orange-500 rounded-lg shadow-sm hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
-                                Запустить регистрацию
+                                Связаться с нами
                             </a>
                         </div>
 

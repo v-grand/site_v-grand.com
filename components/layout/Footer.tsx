@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
             <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <p className="text-base text-slate-500">
-                        &copy; {currentYear} u-cloud24.com. Все права защищены.
+                        &copy; {currentYear} v-grand. Все права защищены.
                     </p>
                     <div className="flex items-center space-x-6">
                         <a href="#" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">Политика конфиденциальности</a>

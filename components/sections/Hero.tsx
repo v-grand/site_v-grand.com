@@ -22,10 +22,10 @@ const Hero: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900">
-                    Интеллектуальные IT-решения <br /> для вашего бизнеса
+                    Комплексный инжиниринг и проектирование
                 </h1>
                 <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-slate-600">
-                    От веб-разработки и AI-агентов до сложных data-пайплайнов. Мы создаем технологии, которые двигают ваш бизнес вперед.
+                    Мы предоставляем полный спектр услуг: от разработки концепции до авторского надзора и сдачи объекта в эксплуатацию.
                 </p>
                 <div className="mt-10 flex justify-center">
                     <a href="#" className="px-8 py-4 text-lg font-semibold text-white bg-orange-500 rounded-lg shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-orange-300/50">
