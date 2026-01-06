@@ -1,17 +1,17 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { NAV_LINKS, SERVICE_NAMES } from '../../constants.ts';
-import { MenuIcon, CloseIcon, ChevronDownIcon, LanguageIcon } from '../ui/icons.tsx';
+import { useLanguage } from '../../LanguageContext.tsx';
+import { MenuIcon, ChevronDownIcon, LanguageIcon } from '../ui/icons.tsx';
 import MobileNav from './MobileNav.tsx';
 import logo from '../ui/logo.png';
 
 const Header: React.FC = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isServicesOpen, setServicesOpen] = useState(false);
-    const [language, setLanguage] = useState('RU');
     const servicesMenuRef = useRef<HTMLDivElement>(null);
+    const { language, setLanguage, t } = useLanguage();
 
-    const toggleLanguage = () => setLanguage(lang => lang === 'RU' ? 'EN' : 'RU');
+    const toggleLanguage = () => setLanguage(language === 'ru' ? 'en' : 'ru');
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -22,6 +22,9 @@ const Header: React.FC = () => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
+
+    const navLinks = t('nav') as unknown as { name: string, href: string }[];
+    const serviceNames = t('services.serviceNames') as unknown as string[];
 
     return (
         <>
@@ -37,7 +40,7 @@ const Header: React.FC = () => {
 
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex items-center space-x-8">
-                            {NAV_LINKS.map(link => (
+                            {navLinks.map(link => (
                                 <a key={link.name} href={link.href} className="text-base font-medium text-slate-600 hover:text-sky-500 transition-colors">
                                     {link.name}
                                 </a>
@@ -49,13 +52,13 @@ const Header: React.FC = () => {
                                     aria-haspopup="true"
                                     aria-expanded={isServicesOpen}
                                 >
-                                    <span>Услуги</span>
+                                    <span>{t('header.services')}</span>
                                     <ChevronDownIcon className={`w-5 h-5 ml-1 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                                 </button>
                                 {isServicesOpen && (
                                     <div className="absolute -left-8 mt-4 w-64 rounded-lg shadow-lg bg-white border border-slate-200 ring-1 ring-black ring-opacity-5">
                                         <div className="py-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                            {SERVICE_NAMES.map(service => (
+                                            {serviceNames.map(service => (
                                                 <a key={service} href="#services" onClick={() => setServicesOpen(false)} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-sky-500" role="menuitem">
                                                     {service}
                                                 </a>
@@ -70,10 +73,10 @@ const Header: React.FC = () => {
                         <div className="hidden md:flex items-center space-x-6">
                             <button onClick={toggleLanguage} className="flex items-center p-2 rounded-md text-slate-500 hover:bg-slate-200 hover:text-slate-700 transition-colors">
                                 <LanguageIcon className="w-6 h-6" />
-                                <span className="ml-2 font-semibold text-sm">{language}</span>
+                                <span className="ml-2 font-semibold text-sm">{language.toUpperCase()}</span>
                             </button>
                             <a href="#" className="px-5 py-3 text-base font-semibold text-white bg-orange-500 rounded-lg shadow-sm hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
-                                Связаться с нами
+                                {t('header.contact')}
                             </a>
                         </div>
 

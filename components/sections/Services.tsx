@@ -1,31 +1,28 @@
 
 import React, { useState, useEffect } from 'react';
-// import { GoogleGenAI, Type } from '@google/genai'; // AI генерация временно отключена
 import type { Service } from '../../types.ts';
-import { SERVICE_NAMES } from '../../constants.ts';
 import { ServiceIcons } from '../ui/icons.tsx';
-
-// const API_KEY = process.env.API_KEY; // Ключ API не используется в текущей конфигурации
+import { useLanguage } from '../../LanguageContext.tsx';
 
 const Services: React.FC = () => {
+    const { t, language } = useLanguage();
     const [services, setServices] = useState<Service[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchServices = () => {
-            // ВРЕМЕННОЕ РЕШЕНИЕ: Используем моковые данные, так как API ключ не настроен.
-            // Это позволяет сайту отображаться. Для включения AI, настройте ваш API ключ.
-            setError("API ключ не настроен. Отображаются демонстрационные данные.");
-            setServices(SERVICE_NAMES.map(name => ({
+            setError(t('services.error'));
+            const serviceNames = t('services.serviceNames') as unknown as string[];
+            setServices(serviceNames.map(name => ({
                 title: name,
-                description: "Описание услуги будет сгенерировано AI, когда API ключ будет доступен. Это пример текста."
+                description: t('services.mockDescription')
             })));
             setLoading(false);
         };
 
         fetchServices();
-    }, []);
+    }, [language, t]);
 
     const renderSkeleton = (index: number) => (
         <div key={index} style={{ '--stagger-index': index } as React.CSSProperties} className="bg-white p-6 rounded-xl border border-slate-200 animate-pulse">
@@ -55,12 +52,12 @@ const Services: React.FC = () => {
         <section id="services" className="py-20 sm:py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center">
-                    <h2 className="text-base font-semibold text-sky-500 tracking-wider uppercase">Наши Услуги</h2>
+                    <h2 className="text-base font-semibold text-sky-500 tracking-wider uppercase">{t('services.sectionTitle')}</h2>
                     <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                        Полный цикл инжиниринговых услуг
+                        {t('services.title')}
                     </p>
                     <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
-                        Мы предлагаем комплексные решения для всех этапов реализации вашего проекта.
+                        {t('services.subtitle')}
                     </p>
                 </div>
 

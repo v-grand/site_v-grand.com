@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { useLanguage } from '../../LanguageContext.tsx';
 
 const Footer: React.FC = () => {
+    const { t } = useLanguage();
     const currentYear = new Date().getFullYear();
 
     return (
@@ -9,11 +11,11 @@ const Footer: React.FC = () => {
             <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <p className="text-base text-slate-500">
-                        &copy; {currentYear} v-grand. Все права защищены.
+                        {t('footer.copyright', { year: currentYear })}
                     </p>
                     <div className="flex items-center space-x-6">
-                        <a href="#" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">Политика конфиденциальности</a>
-                        <a href="#" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">Условия использования</a>
+                        <a href="#" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">{t('footer.privacy')}</a>
+                        <a href="#" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">{t('footer.terms')}</a>
                     </div>
                 </div>
             </div>
