@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { NAV_LINKS, SERVICE_NAMES } from '../../constants.ts';
 import { MenuIcon, CloseIcon, ChevronDownIcon, LanguageIcon } from '../ui/icons.tsx';
 import MobileNav from './MobileNav.tsx';
+import logo from '../ui/logo.png';
 
 const Header: React.FC = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Header: React.FC = () => {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (servicesMenuRef.current && !servicesMenu-ref.current.contains(event.target as Node)) {
+            if (servicesMenuRef.current && !servicesMenuRef.current.contains(event.target as Node)) {
                 setServicesOpen(false);
             }
         };
@@ -29,8 +30,8 @@ const Header: React.FC = () => {
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <div className="flex-shrink-0">
-                            <a href="#" className="text-2xl font-bold text-slate-800">
-                                v-<span className="text-sky-500">grand</span>
+                            <a href="#">
+                                <img className="h-8 w-auto" src={logo} alt="v-grand" />
                             </a>
                         </div>
 
