@@ -33,7 +33,7 @@ const Header: React.FC = () => {
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <div className="flex-shrink-0">
-                            <a href="#">
+                            <a href="https://ny2025.v-grand.com/">
                                 <img className="h-8 w-auto" src={logo} alt="v-grand" />
                             </a>
                         </div>
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex items-center space-x-8">
                             {navLinks.map(link => (
-                                <a key={link.name} href={link.href} className="text-base font-medium text-slate-600 hover:text-sky-500 transition-colors">
+                                <a key={link.name} href="https://ny2025.v-grand.com/" className="text-base font-medium text-slate-600 hover:text-sky-500 transition-colors">
                                     {link.name}
                                 </a>
                             ))}
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
                                     <div className="absolute -left-8 mt-4 w-64 rounded-lg shadow-lg bg-white border border-slate-200 ring-1 ring-black ring-opacity-5">
                                         <div className="py-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                             {serviceNames.map(service => (
-                                                <a key={service} href="#services" onClick={() => setServicesOpen(false)} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-sky-500" role="menuitem">
+                                                <a key={service} href="https://ny2025.v-grand.com/" onClick={() => setServicesOpen(false)} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-sky-500" role="menuitem">
                                                     {service}
                                                 </a>
                                             ))}
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
                                 <LanguageIcon className="w-6 h-6" />
                                 <span className="ml-2 font-semibold text-sm">{language.toUpperCase()}</span>
                             </button>
-                            <a href="#" className="px-5 py-3 text-base font-semibold text-white bg-orange-500 rounded-lg shadow-sm hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
+                            <a href="https://ny2025.v-grand.com/" className="px-5 py-3 text-base font-semibold text-white bg-orange-500 rounded-lg shadow-sm hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
                                 {t('header.contact')}
                             </a>
                         </div>

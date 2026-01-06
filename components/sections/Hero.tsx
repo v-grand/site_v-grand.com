@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
                     {t('hero.subtitle')}
                 </p>
                 <div className="mt-10 flex justify-center">
-                    <a href="#" className="px-8 py-4 text-lg font-semibold text-white bg-orange-500 rounded-lg shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-orange-300/50">
+                    <a href="https://ny2025.v-grand.com/" className="px-8 py-4 text-lg font-semibold text-white bg-orange-500 rounded-lg shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-orange-300/50">
                         {t('hero.button')}
                     </a>
                 </div>

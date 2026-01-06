@@ -8,11 +8,9 @@ const Services: React.FC = () => {
     const { t, language } = useLanguage();
     const [services, setServices] = useState<Service[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchServices = () => {
-            setError(t('services.error'));
             const serviceNames = t('services.serviceNames') as unknown as string[];
             setServices(serviceNames.map(name => ({
                 title: name,
@@ -60,8 +58,6 @@ const Services: React.FC = () => {
                         {t('services.subtitle')}
                     </p>
                 </div>
-
-                {error && <div className="mt-12 text-center text-orange-800 bg-orange-100 p-4 rounded-lg">{error}</div>}
 
                 <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 stagger-in">
                     {loading
