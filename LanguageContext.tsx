@@ -2,7 +2,9 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { translations } from './translations';
 
-type Language = 'ru' | 'en';
+type Language = 'en' | 'pl' | 'de' | 'ru';
+
+export const languages: Language[] = ['en', 'pl', 'de', 'ru'];
 
 interface LanguageContextType {
   language: Language;
@@ -13,7 +15,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('ru');
+  const [language, setLanguage] = useState<Language>('en');
 
   const t = (key: string, options?: { [key: string]: string | number }) => {
     const keys = key.split('.');

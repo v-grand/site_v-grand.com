@@ -12,9 +12,11 @@ const Services: React.FC = () => {
     useEffect(() => {
         const fetchServices = () => {
             const serviceNames = t('services.serviceNames') as unknown as string[];
+            const serviceDescriptions = t('services.serviceDescriptions') as unknown as { [key: string]: string };
+
             setServices(serviceNames.map(name => ({
                 title: name,
-                description: t('services.mockDescription')
+                description: serviceDescriptions[name] || t('services.error') // Fallback to error message if description not found
             })));
             setLoading(false);
         };
