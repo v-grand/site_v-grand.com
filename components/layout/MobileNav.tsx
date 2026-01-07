@@ -22,7 +22,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" onClick={onClose}></div>
             <div className={`fixed top-0 right-0 bottom-0 w-full max-w-sm bg-slate-50 shadow-lg`}>
                 <div className="p-4 flex items-center justify-between border-b border-slate-200">
-                    <a href="https://ny2025.v-grand.com/" className="text-2xl font-bold text-slate-800">
+                    <a href="/" className="text-2xl font-bold text-slate-800">
                         v-<span className="text-sky-500">grand</span>
                     </a>
                     <button onClick={onClose} className="p-2 rounded-md text-slate-600 hover:bg-slate-200">
@@ -31,7 +31,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
                 </div>
                 <nav className="p-6 space-y-4">
                     {navLinks.map(link => (
-                        <a key={link.name} href="https://ny2025.v-grand.com/" onClick={onClose} className="block py-2 text-lg font-medium text-slate-700 hover:text-sky-500">
+                        <a key={link.name} href="/" onClick={onClose} className="block py-2 text-lg font-medium text-slate-700 hover:text-sky-500">
                             {link.name}
                         </a>
                     ))}
@@ -43,7 +43,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
                         {isServicesOpen && (
                             <div className="mt-2 pl-4 space-y-2 border-l-2 border-slate-200">
                                 {serviceNames.map(service => (
-                                    <a key={service} href="https://ny2025.v-grand.com/" onClick={onClose} className="block py-1 text-base text-slate-600 hover:text-sky-500">
+                                    <a key={service} href="/" onClick={onClose} className="block py-1 text-base text-slate-600 hover:text-sky-500">
                                         {service}
                                     </a>
                                 ))}
@@ -51,7 +51,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
                         )}
                     </div>
                     <div className="pt-6">
-                        <a href="https://ny2025.v-grand.com/" className="w-full block text-center px-5 py-4 text-lg font-semibold text-white bg-orange-500 rounded-lg shadow-sm hover:bg-orange-600 transition-colors">
+                        <a href="/" className="w-full block text-center px-5 py-4 text-lg font-semibold text-white bg-orange-500 rounded-lg shadow-sm hover:bg-orange-600 transition-colors">
                             {t('header.contact')}
                         </a>
                     </div>

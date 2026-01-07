@@ -14,8 +14,9 @@ const Footer: React.FC = () => {
                         {t('footer.copyright', { year: currentYear })}
                     </p>
                     <div className="flex items-center space-x-6">
-                        <a href="https://ny2025.v-grand.com/" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">{t('footer.privacy')}</a>
-                        <a href="https://ny2025.v-grand.com/" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">{t('footer.terms')}</a>
+                        <a href={`mailto:${t('footer.email')}`} className="text-sm text-slate-500 hover:text-sky-500 transition-colors">{t('footer.email')}</a>
+                        <a href="/" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">{t('footer.privacy')}</a>
+                        <a href="/" className="text-sm text-slate-500 hover:text-sky-500 transition-colors">{t('footer.terms')}</a>
                     </div>
                 </div>
             </div>

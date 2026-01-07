@@ -37,6 +37,7 @@ export const translations = {
       copyright: '© {year} v-grand. Все права защищены.',
       privacy: 'Политика конфиденциальности',
       terms: 'Условия использования',
+      email: 'info@v-grand.com',
     },
   },
   en: {
@@ -76,6 +77,7 @@ export const translations = {
       copyright: '© {year} v-grand. All rights reserved.',
       privacy: 'Privacy Policy',
       terms: 'Terms of Use',
+      email: 'info@v-grand.com',
     },
   },
 };
