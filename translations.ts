@@ -46,6 +46,12 @@ export const translations = {
       privacy: 'Политика конфиденциальности',
       terms: 'Условия использования',
       email: 'info@v-grand.com',
+      downloadPresentation: 'Скачать презентацию',
+    },
+    presentation: {
+      title: 'Скачать презентацию',
+      description: 'Узнайте больше о наших услугах и проектах, скачав нашу презентацию.',
+      downloadButton: 'Скачать PDF',
     },
   },
   en: {
@@ -94,6 +100,12 @@ export const translations = {
       privacy: 'Privacy Policy',
       terms: 'Terms of Use',
       email: 'info@v-grand.com',
+      downloadPresentation: 'Download Presentation',
+    },
+    presentation: {
+      title: 'Download Presentation',
+      description: 'Learn more about our services and projects by downloading our presentation.',
+      downloadButton: 'Download PDF',
     },
   },
   pl: {
@@ -142,6 +154,12 @@ export const translations = {
       privacy: 'Polityka prywatności',
       terms: 'Warunki użytkowania',
       email: 'info@v-grand.com',
+      downloadPresentation: 'Pobierz prezentację',
+    },
+    presentation: {
+      title: 'Pobierz prezentację',
+      description: 'Dowiedz się więcej o naszych usługach i projektach, pobierając naszą prezentację.',
+      downloadButton: 'Pobierz PDF',
     },
   },
   de: {
@@ -190,6 +208,12 @@ export const translations = {
       privacy: 'Datenschutzrichtlinie',
       terms: 'Nutzungsbedingungen',
       email: 'info@v-grand.com',
+      downloadPresentation: 'Präsentation herunterladen',
+    },
+    presentation: {
+      title: 'Präsentation herunterladen',
+      description: 'Erfahren Sie mehr über unsere Dienstleistungen und Projekte, indem Sie unsere Präsentation herunterladen.',
+      downloadButton: 'PDF herunterladen',
     },
   },
 };
